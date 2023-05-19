@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
     <title>Leah Boalich's Portfolio</title>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-              <li>
-                  <a href=”/”>Home</a>
-              </li>
-              <li>
-                  <a href=""></a>About</a>
-              </li>
-              <li>
-                  <a href="">Projects</a>
-              </li>
-              <li>
-                  <a href="">Contact</a>
-              </li>
-            </ul>
+        <div class="menu-icon">
+            <span class="menu-icon__line menu-icon__line-left"></span>
+            <span class="menu-icon__line"></span>
+            <span class="menu-icon__line menu-icon__line-right"></span>
+        </div>
+          
+        <nav class="nav">
+            <div class="nav__content">
+                <ul class="nav__list">
+                    <li class="nav__list-item">Home</li>
+                    <li class="nav__list-item">About</li>
+                    <li class="nav__list-item">Projects</li>
+                    <li class="nav__list-item">Contact</li>
+                </ul>
+            </div>
         </nav>
     </header>
-    <main>
+    <main class="site-content">
+        <div>
+            <h1 class="site-content__headline">Hi!</h1>
+            <h1 class="site-content__headline">I'm</h1>
+            <h1 class="site-content__headline">Leah Boalich</h1>
+            <h2 class="site-content__headline">Front-End Developer</h2>
+        </div>
     </main>
     <footer>
     </footer>
