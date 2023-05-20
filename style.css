@@ -26,7 +26,7 @@ body {
     width: 30px;
     position: fixed;
     z-index: 2;
-    left: 50px;
+    left: 3.5vw;
     top: 30px;
     cursor: pointer;
 }
@@ -80,7 +80,7 @@ body {
     transform: translate(0%, -50%);
     width: 100%;
     text-align: center;
-    font-size: calc(2vw + 10px);
+    font-size: calc(3vw + 10px);
     font-weight: 200; 
 }
 
@@ -91,14 +91,14 @@ body {
     opacity: 0;
     transform: translate(0%, 100%);
     transition: opacity 0.2s ease, transform 0.3s ease;
-    margin-right: 25px;
+    margin-right: 5vw;
 }
 
 .nav__list-item:before {
     content: "";
     position: absolute;
     background: #000;
-    width: 20px;
+    width: calc(2.25vw + 10px);
     height: 1px;
     top: 100%;
     transform: translate(0%, 0%);
@@ -177,19 +177,21 @@ body.nav-active .nav__list-item:nth-child(4) {
     flex-direction: column;
 }
 .container .box {
-    width: 500px;
-    height: 500px;
+    width: 45vw;
+    height: 45vw;
     position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    container-type: inline-size;
+    padding-left: 2vw;
 }
 .container .box .title {
     width: 100%;
     position: relative;
     display: flex;
     align-items: center;
-    height: 100px;
+    height: 21.87cqw;
 }
 .container .box .title .block {
     width: 0%;
@@ -202,7 +204,7 @@ body.nav-active .nav__list-item:nth-child(4) {
 .container .box .title h1 {
     font-family: 'Poppins';
     color: #fff;
-    font-size: 64px;
+    font-size: 14cqw;
     -webkit-animation: mainFadeIn 2s forwards;
     -o-animation: mainFadeIn 2s forwards;
     animation: mainFadeIn 2s forwards;
@@ -226,15 +228,15 @@ body.nav-active .nav__list-item:nth-child(4) {
     margin-top: -10px;
     position: absolute;
     bottom: 13px;
-    right: -18px;
+    right: -4cqw;
 }
 .container .box .role {
     width: 100%;
     position: relative;
     display: flex;
     align-items: center;
-    height: 60px;
-    margin-top: -20px;
+    height: 13.12cqw;
+    margin-top: -4.36cqw;
 }
 .container .box .role .block {
     width: 0%;
@@ -252,10 +254,10 @@ body.nav-active .nav__list-item:nth-child(4) {
     font-weight: 400;
     font-family: 'Lato';
     color: #fff;
-    font-size: 24px;
+    font-size: 5.25cqw;
     text-transform: uppercase;
-    letter-spacing: 5px;
-    padding-left: 2px;
+    letter-spacing: 1.1cqw;
+    padding-left: .43cqw;
 }
 @keyframes mainBlock {
     0% {
@@ -302,29 +304,28 @@ body.nav-active .nav__list-item:nth-child(4) {
         opacity: 0;
    }
     50% {
-        width: 20px;
-        height: 20px;
-        background: #F29F05;
+        width: 3.5cqw;
+        height: 3.5cqw;
+        background: #F2CB05;
         opacity: 1;
-        bottom: 45px;
+        bottom: 9.84cqw;
    }
     65% {
-        width: 14px;
-        height: 14px;
+        width: 3cqw;
+        height: 3cqw;
         bottom: 0px;
-        width: 15px;
    }
     80% {
-        width: 20px;
-        height: 20px;
-        bottom: 20px;
+        width: 3.5cqw;
+        height: 3.5cqw;
+        bottom: 4.3cqw;
    }
     100% {
-        width: 14px;
-        height: 14px;
+        width: 3cqw;
+        height: 3cqw;
         background: #F29F05;
         border: 0px solid #222;
-        bottom: 13px;
+        bottom: 2.8cqw;
    }
 }
 @keyframes secFadeIn {
@@ -340,7 +341,7 @@ body.nav-active .nav__list-item:nth-child(4) {
 
 footer {
     width: 350px;
-    height: 80px;
+    height: 60px;
     background: #F29F05;
     position: absolute;
     right: 0;
@@ -396,4 +397,38 @@ footer span svg {
         opacity: 1;
         bottom: 0px;
    }
+}
+
+@media only screen and (max-width: 650px) {
+    .nav__list-item {
+        display: block;
+        margin-bottom: 6vh;
+        width: fit-content;
+    }
+
+    .nav__content {
+        font-size: 8vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav__list-item:before {
+        width: 6.25vw;
+    }
+
+    .nav__list {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: fit-content;
+    }
+
+    .container .box {
+        width: 80vw;
+        height: 80vw;
+    }
+
+    footer {
+        width: 100vw;
+    }
 }
