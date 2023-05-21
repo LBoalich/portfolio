@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    background-color: #1e2023;
+    background-color: #232323;
     font-family: 'Lato';
     
     -webkit-font-smoothing: antialiased;
@@ -94,6 +94,11 @@ body {
     margin-right: 5vw;
 }
 
+.nav__list-item a {
+    text-decoration: none;
+    color: #000;
+}
+
 .nav__list-item:before {
     content: "";
     position: absolute;
@@ -166,7 +171,7 @@ body.nav-active .nav__list-item:nth-child(4) {
     transition-delay: 0.9s;
 }
 
-/* Main */
+/* Home */
 
 .container {
     width: 100%;
@@ -398,6 +403,21 @@ footer span svg {
         bottom: 0px;
    }
 }
+
+/* About */
+
+.about-container {
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+
+
 
 @media only screen and (max-width: 650px) {
     .nav__list-item {
