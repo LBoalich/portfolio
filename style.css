@@ -180,7 +180,8 @@ body.nav-active .nav__list-item:nth-child(4) {
     align-items: center;
     flex-direction: column;
 }
-.container .box {
+
+.box {
     width: 45vw;
     height: 45vw;
     position: relative;
@@ -190,14 +191,16 @@ body.nav-active .nav__list-item:nth-child(4) {
     container-type: inline-size;
     padding-left: 2vw;
 }
-.container .box .title {
+
+.title {
     width: 100%;
     position: relative;
     display: flex;
     align-items: center;
     height: 21.87cqw;
 }
-.container .box .title .block {
+
+.title .block {
     width: 0%;
     height: inherit;
     background: #F29F05;
@@ -205,7 +208,8 @@ body.nav-active .nav__list-item:nth-child(4) {
     animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     display: flex;
 }
-.container .box .title h1 {
+
+.title h1 {
     font-family: 'Poppins';
     color: #fff;
     font-size: 14cqw;
@@ -218,7 +222,8 @@ body.nav-active .nav__list-item:nth-child(4) {
     align-items: baseline;
     position: relative;
 }
-.container .box .title h1 span {
+
+.title h1 span {
     width: 0px;
     height: 0px;
     -webkit-border-radius: 50%;
@@ -234,7 +239,8 @@ body.nav-active .nav__list-item:nth-child(4) {
     bottom: 13px;
     right: -4cqw;
 }
-.container .box .role {
+
+.role {
     width: 100%;
     position: relative;
     display: flex;
@@ -242,7 +248,8 @@ body.nav-active .nav__list-item:nth-child(4) {
     height: 13.12cqw;
     margin-top: -4.36cqw;
 }
-.container .box .role .block {
+
+.role .block {
     width: 0%;
     height: inherit;
     background: #F23030;
@@ -251,7 +258,8 @@ body.nav-active .nav__list-item:nth-child(4) {
     animation-delay: 2s;
     display: flex;
 }
-.container .box .role p {
+
+.role p {
     animation: secFadeIn 2s forwards;
     animation-delay: 3.2s;
     opacity: 0;
@@ -263,6 +271,7 @@ body.nav-active .nav__list-item:nth-child(4) {
     letter-spacing: 1.1cqw;
     padding-left: .43cqw;
 }
+
 @keyframes mainBlock {
     0% {
         width: 0%;
@@ -277,6 +286,7 @@ body.nav-active .nav__list-item:nth-child(4) {
         left: 100%;
    }
 }
+
 @keyframes secBlock {
     0% {
         width: 0%;
@@ -291,6 +301,7 @@ body.nav-active .nav__list-item:nth-child(4) {
         left: 100%;
    }
 }
+
 @keyframes mainFadeIn {
     0% {
         opacity: 0;
@@ -299,6 +310,7 @@ body.nav-active .nav__list-item:nth-child(4) {
         opacity: 1;
    }
 }
+
 @keyframes popIn {
     0% {
         width: 0px;
@@ -332,6 +344,7 @@ body.nav-active .nav__list-item:nth-child(4) {
         bottom: 2.8cqw;
    }
 }
+
 @keyframes secFadeIn {
     0% {
         opacity: 0;
@@ -437,7 +450,7 @@ footer span i {
         width: fit-content;
     }
 
-    .container .box {
+    .box {
         width: 80vw;
         height: 80vw;
     }
