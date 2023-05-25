@@ -7,16 +7,15 @@
 }
 
 html {
-    overflow: hidden;
+    height: 101vh;
 }
 
 body {
     background-color: #232323;
     font-family: 'Lato';
-    
+    height: 101vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow: hidden;
 }
 
 /* Nav */

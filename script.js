@@ -1,14 +1,10 @@
-console.clear();
-
 const app = (() => {
   let body;
   let menu;
-  let menuItems;
   
   const init = () => {
     body = document.querySelector('body');
     menu = document.querySelector('.menu-icon');
-    menuItems = document.querySelectorAll('.nav__list-item');
 
     applyListeners();
   }
@@ -26,3 +22,60 @@ const app = (() => {
   
   init();
 })();
+
+let previousScrollPosition = 0;
+
+const isScrollingDown = () => {
+  let goingDown = false;
+
+  let scrollPosition = window.pageYOffset;
+
+  if (scrollPosition > previousScrollPosition) {
+    goingDown = true;
+  }
+
+  previousScrollPosition = scrollPosition;
+
+  return goingDown;
+};
+
+
+const handleScroll = () => {
+  if (document.body.classList.contains("nav-active")) {
+    return;
+  }
+
+  if (isScrollingDown()) {
+    switch (window.location.pathname) {
+      case "/Users/leahboalich/Documents/GitHub/Portfolio/index.html":
+        window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/about.html";
+        break;
+      case "/Users/leahboalich/Documents/GitHub/Portfolio/about.html":
+        window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html";
+        break;
+      case "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html":
+        window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html";
+        break;
+      case "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html":
+        window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/index.html";
+        break;
+      default:
+        break;
+    };
+    previousScrollPosition = 0;
+  }
+};
+
+let throttleTimer;
+const throttle = (callback, time) => {
+  if (throttleTimer) return;
+    throttleTimer = true;
+    setTimeout(() => {
+        callback();
+        throttleTimer = false;
+    }, time);
+}
+
+window.addEventListener("scroll", () => {
+  throttle(handleScroll, 1000);
+});
