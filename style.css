@@ -205,22 +205,42 @@ body.nav-active .nav__list-item:nth-child(4) {
     height: inherit;
     background: #F29F05;
     position: absolute;
-    animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     display: flex;
+    
+}
+
+.title .block.start {
+    animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+}
+
+.title .block.scrolled {
+    animation: mainBlockReverse 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation-delay: .8s;
 }
 
 .title h1 {
     font-family: 'Poppins';
     color: #fff;
     font-size: 14cqw;
+    display: flex;
+    align-items: baseline;
+    position: relative;
+    opacity: 0;
+}
+
+.title h1.start {
     -webkit-animation: mainFadeIn 2s forwards;
     -o-animation: mainFadeIn 2s forwards;
     animation: mainFadeIn 2s forwards;
     animation-delay: 1.6s;
     opacity: 0;
-    display: flex;
-    align-items: baseline;
-    position: relative;
+}
+
+.title h1.scrolled {
+    opacity: 1;
+    -webkit-animation: mainFadeOut 2s forwards;
+    -o-animation: mainFadeOut 2s forwards;
+    animation: mainFadeOut 2s forwards;
 }
 
 .title h1 span {
@@ -230,7 +250,7 @@ body.nav-active .nav__list-item:nth-child(4) {
     -moz-border-radius: 50%;
     border-radius: 50%;
     background: #F29F05;
-    -webkit-animation: load 0.6s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    -webkit-animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     animation-delay: 2s;
     margin-left: 5px;
@@ -238,6 +258,11 @@ body.nav-active .nav__list-item:nth-child(4) {
     position: absolute;
     bottom: 13px;
     right: -4cqw;
+}
+
+.title h1 span.scrolled {
+    -webkit-animation: popOut 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation: popOut 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
 }
 
 .role {
@@ -254,14 +279,20 @@ body.nav-active .nav__list-item:nth-child(4) {
     height: inherit;
     background: #F23030;
     position: absolute;
-    animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
-    animation-delay: 2s;
     display: flex;
 }
 
-.role p {
-    animation: secFadeIn 2s forwards;
+.role .block.start {
+    animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation-delay: 2s;
+}
+
+.role .block.scrolled {
+    animation: secBlockReverse 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     animation-delay: 3.2s;
+}
+
+.role p {
     opacity: 0;
     font-weight: 400;
     font-family: 'Lato';
@@ -270,6 +301,17 @@ body.nav-active .nav__list-item:nth-child(4) {
     text-transform: uppercase;
     letter-spacing: 1.1cqw;
     padding-left: .43cqw;
+}
+
+.role p.start {
+    animation: secFadeIn 2s forwards;
+    animation-delay: 3.2s;
+}
+
+.role p.scrolled {
+    opacity: .5;
+    animation: secFadeOut 2s forwards;
+    animation-delay: 2.8s;
 }
 
 @keyframes mainBlock {
@@ -284,6 +326,21 @@ body.nav-active .nav__list-item:nth-child(4) {
     100% {
         width: 0;
         left: 100%;
+   }
+}
+
+@keyframes mainBlockReverse {
+    0% {
+        width: 0%;
+        right: 0;
+   }
+    50% {
+        width: 100%;
+        right: 0;
+   }
+    100% {
+        width: 0%;
+        right: 100%;
    }
 }
 
@@ -302,6 +359,21 @@ body.nav-active .nav__list-item:nth-child(4) {
    }
 }
 
+@keyframes secBlockReverse {
+    0% {
+        width: 0%;
+        right: 0;
+   }
+    50% {
+        width: 100%;
+        right: 0;
+   }
+    100% {
+        width: 0;
+        right: 100%;
+   }
+}
+
 @keyframes mainFadeIn {
     0% {
         opacity: 0;
@@ -309,6 +381,15 @@ body.nav-active .nav__list-item:nth-child(4) {
     100% {
         opacity: 1;
    }
+}
+
+@keyframes mainFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes popIn {
@@ -345,6 +426,44 @@ body.nav-active .nav__list-item:nth-child(4) {
    }
 }
 
+@keyframes popOut {
+    0% {
+        width: 3cqw;
+        height: 3cqw;
+        background: #F29F05;
+        border: 0px solid #222;
+        bottom: 2.8cqw;
+   }
+
+    20% {
+        width: 3.5cqw;
+        height: 3.5cqw;
+        bottom: 4.3cqw;
+    }
+
+    35% {
+        width: 3cqw;
+        height: 3cqw;
+        bottom: 0px;
+    }
+
+    50% {
+        width: 3.5cqw;
+        height: 3.5cqw;
+        background: #F2CB05;
+        opacity: 1;
+        bottom: 9.84cqw;
+    }
+
+    100% {
+        width: 0px;
+        height: 0px;
+        background-color: #F29F05;
+        border: 0px solid #ddd;
+        opacity: 0;
+   }
+}
+
 @keyframes secFadeIn {
     0% {
         opacity: 0;
@@ -352,6 +471,15 @@ body.nav-active .nav__list-item:nth-child(4) {
     100% {
         opacity: 0.5;
    }
+}
+
+@keyframes secFadeOut {
+    0% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /* Footer */

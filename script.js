@@ -74,8 +74,26 @@ const throttle = (callback, time) => {
         callback();
         throttleTimer = false;
     }, time);
-}
+};
 
-window.addEventListener("scroll", () => {
-  throttle(handleScroll, 1000);
-});
+const scrollToggle = (className) => {
+  const elements = document.getElementsByClassName(className);
+
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].classList.toggle("start");
+    elements[i].classList.toggle("scrolled")
+  };
+};
+
+// window.addEventListener("scroll", () => {
+//  const element = document.getElementById("index-scrolled");
+//  element.classList.toggle("")
+// });
+
+
+window.addEventListener("click", () => {scrollToggle("index-scroll"); console.log("scrolled");})
+
+// window.addEventListener("scroll", () => {
+//  throttle(handleScroll, 1000);
+// });
+
