@@ -205,8 +205,7 @@ body.nav-active .nav__list-item:nth-child(4) {
     height: inherit;
     background: #F29F05;
     position: absolute;
-    display: flex;
-    
+    display: flex;   
 }
 
 .title .block.start {
@@ -215,7 +214,7 @@ body.nav-active .nav__list-item:nth-child(4) {
 
 .title .block.scrolled {
     animation: mainBlockReverse 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
-    animation-delay: .8s;
+    animation-delay: 2.8s;
 }
 
 .title h1 {
@@ -241,6 +240,7 @@ body.nav-active .nav__list-item:nth-child(4) {
     -webkit-animation: mainFadeOut 2s forwards;
     -o-animation: mainFadeOut 2s forwards;
     animation: mainFadeOut 2s forwards;
+    animation-delay: 2s;
 }
 
 .title h1 span {
@@ -250,9 +250,6 @@ body.nav-active .nav__list-item:nth-child(4) {
     -moz-border-radius: 50%;
     border-radius: 50%;
     background: #F29F05;
-    -webkit-animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
-    animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
-    animation-delay: 2s;
     margin-left: 5px;
     margin-top: -10px;
     position: absolute;
@@ -260,9 +257,20 @@ body.nav-active .nav__list-item:nth-child(4) {
     right: -4cqw;
 }
 
+.title h1 span.start {
+    -webkit-animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation-delay: 2s;
+}
+
 .title h1 span.scrolled {
     -webkit-animation: popOut 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     animation: popOut 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation-delay: 2s;
+    width: 3cqw;
+    height: 3cqw;
+    border: 0px solid #222;
+    bottom: 2.8cqw;
 }
 
 .role {
@@ -289,7 +297,7 @@ body.nav-active .nav__list-item:nth-child(4) {
 
 .role .block.scrolled {
     animation: secBlockReverse 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
-    animation-delay: 3.2s;
+    animation-delay: .8s;
 }
 
 .role p {
@@ -311,7 +319,6 @@ body.nav-active .nav__list-item:nth-child(4) {
 .role p.scrolled {
     opacity: .5;
     animation: secFadeOut 2s forwards;
-    animation-delay: 2.8s;
 }
 
 @keyframes mainBlock {
@@ -552,6 +559,15 @@ footer span i {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
+}
+
+@keyframes fly-in {
+    0% { opacity: 0;filter: blur(20px); transform:scale(12)}
+    3% { opacity: 1;filter: blur(0); transform:scale(1)}
+    10% { opacity: 1;filter: blur(0); transform:scale(.9)}
+    13% { opacity: 0;filter: blur(10px); transform:scale(.1)}
+    80% { opacity: 0}
+    100% { opacity: 0}
 }
 
 @media only screen and (max-width: 650px) {

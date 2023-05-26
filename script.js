@@ -23,6 +23,15 @@ const app = (() => {
   init();
 })();
 
+const scrollToggle = (className) => {
+  const elements = document.getElementsByClassName(className);
+
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].classList.toggle("start");
+    elements[i].classList.toggle("scrolled")
+  };
+};
+
 let previousScrollPosition = 0;
 
 const isScrollingDown = () => {
@@ -48,7 +57,10 @@ const handleScroll = () => {
   if (isScrollingDown()) {
     switch (window.location.pathname) {
       case "/Users/leahboalich/Documents/GitHub/Portfolio/index.html":
-        window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/about.html";
+        scrollToggle("index-scroll");
+        setTimeout(() => {
+          window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/about.html";
+        }, 4800);
         break;
       case "/Users/leahboalich/Documents/GitHub/Portfolio/about.html":
         window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html";
@@ -76,24 +88,9 @@ const throttle = (callback, time) => {
     }, time);
 };
 
-const scrollToggle = (className) => {
-  const elements = document.getElementsByClassName(className);
+// window.addEventListener("scroll", () => {scrollToggle("index-scroll")});
 
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].classList.toggle("start");
-    elements[i].classList.toggle("scrolled")
-  };
-};
-
-// window.addEventListener("scroll", () => {
-//  const element = document.getElementById("index-scrolled");
-//  element.classList.toggle("")
-// });
-
-
-window.addEventListener("click", () => {scrollToggle("index-scroll"); console.log("scrolled");})
-
-// window.addEventListener("scroll", () => {
-//  throttle(handleScroll, 1000);
-// });
+window.addEventListener("scroll", () => {
+  throttle(handleScroll, 1000);
+});
 
