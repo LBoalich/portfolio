@@ -63,7 +63,10 @@ const handleScroll = () => {
         }, 4800);
         break;
       case "/Users/leahboalich/Documents/GitHub/Portfolio/about.html":
-        window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html";
+        scrollToggle("about-scroll");
+        setTimeout(() => {
+          window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html";
+        }, 2000)
         break;
       case "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html":
         window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html";
@@ -88,9 +91,7 @@ const throttle = (callback, time) => {
     }, time);
 };
 
-// window.addEventListener("scroll", () => {scrollToggle("index-scroll")});
-
-window.addEventListener("scroll", () => {
-  throttle(handleScroll, 1000);
-});
+//window.addEventListener("scroll", () => {
+//  throttle(handleScroll, 1000);
+//});
 
