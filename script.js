@@ -91,7 +91,7 @@ const throttle = (callback, time) => {
     }, time);
 };
 
-window.addEventListener("scroll", () => {
+// window.addEventListener("scroll", () => {
   throttle(handleScroll, 1000);
-});
+// });
 
