@@ -105,9 +105,9 @@ const throttle = (callback, time) => {
 
 // When page scrolled calls handle scroll only once per second
 
-// window.addEventListener("scroll", () => {
-//  throttle(handleScroll, 1000);
-// });
+window.addEventListener("scroll", () => {
+throttle(handleScroll, 1000);
+});
 
 // Toggle the visible project when the forward or back button is clicked
 
@@ -172,7 +172,7 @@ const handleProjectForwardClick = () => {
 document.getElementById("project-forward-button").addEventListener("click", () => handleProjectForwardClick());
 document.getElementById("project-back-button").addEventListener("click", () => handleProjectBackClick());
 
-// Current project always starts with It's A Bird which is stored if load project page based on session storage project id
+// Current project always starts with It's A Bird which is stored. Load project page based on session storage project id
 
 window.onload = () => {
   const currentProjectSet = sessionStorage.getItem("currentProjectId");
