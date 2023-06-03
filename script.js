@@ -1,3 +1,5 @@
+// Navigation toggle visibility when clicked
+
 const app = (() => {
   let body;
   let menu;
@@ -23,6 +25,8 @@ const app = (() => {
   init();
 })();
 
+// Toggles page load and exit animations
+
 const scrollToggle = (className) => {
   const elements = document.getElementsByClassName(className);
 
@@ -32,7 +36,11 @@ const scrollToggle = (className) => {
   };
 };
 
+// Index page always loads first with scroll position of 0
+
 let previousScrollPosition = 0;
+
+// Determine if page was scrolled down and set previousScrollPosition to new scroll position
 
 const isScrollingDown = () => {
   let goingDown = false;
@@ -47,6 +55,8 @@ const isScrollingDown = () => {
 
   return goingDown;
 };
+
+// When page is scrolled down and nav not active toggles current page animation to scrolled and updates current pathname to next page.  Resets previousScrollPosition back to 0.
 
 
 const handleScroll = () => {
@@ -81,6 +91,8 @@ const handleScroll = () => {
   }
 };
 
+// Makes sure event can only fire function after certain amount of time has elapsed.
+
 let throttleTimer;
 const throttle = (callback, time) => {
   if (throttleTimer) return;
@@ -91,7 +103,84 @@ const throttle = (callback, time) => {
     }, time);
 };
 
+// When page scrolled calls handle scroll only once per second
+
 // window.addEventListener("scroll", () => {
-  throttle(handleScroll, 1000);
+//  throttle(handleScroll, 1000);
 // });
 
+// Toggle the visible project when the forward or back button is clicked
+
+const displayToggle = (id) => {
+  const element = document.getElementById(id);
+  const elementClassList = element.classList;
+  
+  if (elementClassList.contains("project-visible")) {
+    element.classList.replace("project-visible", "project-hidden")
+  } else {
+    element.classList.replace("project-hidden", "project-visible")
+  };
+};
+
+// Using currentProjectId variable if sessionStorage not available.
+
+let currentProjectId = "bird";
+
+
+const handleProjectBackClick = () => {
+  switch (sessionStorage.getItem("currentProjectId")) {
+    case "bird": 
+      displayToggle("bird");
+      displayToggle("gta");
+      sessionStorage.setItem("currentProjectId", "gta");
+      break;
+    case "reddit":
+      displayToggle("reddit");
+      displayToggle("bird");
+      sessionStorage.setItem("currentProjectId", "bird");
+      break;
+    case "gta":
+      displayToggle("gta");
+      displayToggle("reddit");
+      sessionStorage.setItem("currentProjectId", "reddit");
+      break;
+  };
+};
+
+const handleProjectForwardClick = () => {
+  switch (sessionStorage.getItem("currentProjectId")) {
+    case "bird":
+      displayToggle("bird");
+      displayToggle("reddit");
+      sessionStorage.setItem("currentProjectId", "reddit");
+      break;
+    case "reddit" :
+      displayToggle("reddit");
+      displayToggle("gta");
+      sessionStorage.setItem("currentProjectId", "gta");
+      break;
+    case "gta":
+      displayToggle("gta");
+      displayToggle("bird");
+      sessionStorage.setItem("currentProjectId", "bird");
+      break;
+  }
+};
+
+// Loads next project when forward or back button clicked
+
+document.getElementById("project-forward-button").addEventListener("click", () => handleProjectForwardClick());
+document.getElementById("project-back-button").addEventListener("click", () => handleProjectBackClick());
+
+// Current project always starts with It's A Bird which is stored if load project page based on session storage project id
+
+window.onload = () => {
+  const currentProjectSet = sessionStorage.getItem("currentProjectId");
+  
+  if (currentProjectSet) {
+    displayToggle(currentProjectSet);
+  } else {
+    sessionStorage.setItem("currentProjectId", "bird");
+    displayToggle("bird");
+  }; 
+};

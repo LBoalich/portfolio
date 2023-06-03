@@ -806,6 +806,79 @@ footer span i {
     }
   }
 
+  /* Projects */
+
+  .projects-container {
+    width: 100vw;
+    height: calc(100vh - 60px);
+    color:#CCCCCC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .projects-h1 {
+    font-size: calc(3vw + 10px);
+    margin-bottom: 10vh;
+  }
+
+  .projects-div {
+    width: 70vw;
+  }
+
+  .project-container {
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .project-visible {
+    display: flex;
+  }
+
+  .project-hidden {
+    display: none;
+  }
+
+  .project-img {
+    width: 40vw;
+    height: auto;
+  }
+
+  .project-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2vw;
+  }
+
+  .project-h2 {
+    font-size: calc(2vw + 10px);
+    text-align: center;
+    width: fit-content;
+  }
+
+  .project-a {
+    font-size: calc(1.25vw + 10px);
+    margin: 2vh 0;
+  }
+
+  .project-p {
+    text-align: justify;
+  }
+
+  .projects-buttons {
+    width: 70vw;
+    font-size: calc(1.5vw + 10px);
+    margin-top: 3vh;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
   /* Media */
 
 @media only screen and (max-width: 1200px) {
