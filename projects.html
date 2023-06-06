@@ -32,33 +32,33 @@
     </header>
 
     <main class="projects-container">
-        <h1 class="projects-h1">Projects</h1>
-        <div class="projects-div">
-            <section class="project-container project-hidden" id="bird">
-                <img class="project-img" src="./pics/its-a-bird.webp"/>
-                <article class="project-article">
-                    <h2 class="project-h2">It's A Bird.</h2>
-                    <a class="project-a"  href="https://its-a-bird.netlify.app/" target="_blank" rel="noopener noreferrer">Visit It's A Bird Web App</a>
-                    <p class="project-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </article>
-            </section>
-            <section class="project-container project-hidden" id="reddit">
-                <img class="project-img" src="./pics/redditBoard.webp"/>
-                <article class="project-article">
-                    <h2 class="project-h2">redditBoard</h2>
-                    <a class="project-a" href="https://reddit-board.netlify.app/" target="_blank" rel="noopener noreferrer">Visit redditBoard Web App</a>
-                    <p class="project-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </article>
-            </section>
-            <section class="project-container project-hidden" id="gta">
-                <img class="project-img" src="./pics/gta.webp"/>
-                <article class="project-article">
-                    <h2 class="project-h2">Python Terminal Game</h2>
-                    <a class="project-a" href="https://github.com/LBoalich/gta_game" target="_blank" rel="noopener noreferrer">Visit GTA Terminal Game Github Repository</a>
-                    <p class="project-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </article>
-            </section>
+        <div class="projects-neon">
+            <h1 class="projects-h1" data-text="Projects">Projects</h1>
+            <span class="gradient"></span>
+            <span class="spotlight"></span>
         </div>
+       
+        <section class="project-container project-hidden" id="bird">
+            <img class="project-img" src="./pics/its-a-bird.webp"/>
+            <h2 class="project-h2">It's A Bird.</h2>
+            <p class="project-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <a class="project-a"  href="https://its-a-bird.netlify.app/" target="_blank" rel="noopener noreferrer">Visit It's A Bird Web App</a>
+        </section>
+            
+        <section class="project-container project-hidden" id="reddit">
+            <img class="project-img" src="./pics/redditBoard.webp"/>
+            <h2 class="project-h2">reddit Board</h2>
+            <p class="project-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <a class="project-a" href="https://reddit-board.netlify.app/" target="_blank" rel="noopener noreferrer">Visit redditBoard Web App</a>
+        </section>
+
+        <section class="project-container project-hidden" id="gta">
+            <img class="project-img" src="./pics/gta.webp"/>
+            <h2 class="project-h2">Python Terminal Game</h2>
+            <p class="project-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <a class="project-a" href="https://github.com/LBoalich/gta_game" target="_blank" rel="noopener noreferrer">Visit GTA Terminal Game Github Repository</a>
+        </section>
+
         <div class="projects-buttons">
             <button id="project-back-button" type="button"><i class="fa-solid fa-arrow-left"></i></button>
             <button id="project-forward-button" type="button"><i class="fa-solid fa-arrow-right"></i></button>
@@ -75,6 +75,8 @@
             </div>
         </footer>
     </a>
+
+    <div class="scroll-div"></div>
 
     <script src="script.js"></script>
 </body>

@@ -105,9 +105,9 @@ const throttle = (callback, time) => {
 
 // When page scrolled calls handle scroll only once per second
 
-window.addEventListener("scroll", () => {
-throttle(handleScroll, 1000);
-});
+//window.addEventListener("scroll", () => {
+//throttle(handleScroll, 1000);
+//});
 
 // Toggle the visible project when the forward or back button is clicked
 

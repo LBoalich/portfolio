@@ -7,14 +7,9 @@
     padding: 0;
 }
 
-html {
-    height: 101vh;
-}
-
 body {
     background-color: black;
     font-family: 'Lato', sans-serif;
-    height: 101vh;
 }
 
 /* Nav */
@@ -180,10 +175,11 @@ footer {
     background: #F29F05;
     position: absolute;
     right: 0;
-    bottom: -80px;
     display: flex;
     justify-content: center;
     align-items: center;
+    bottom: -80px;
+    opacity: 0;
 }
 
 .index-footer {
@@ -192,7 +188,18 @@ footer {
 }
 
 .about-footer {
-    animation: top 0.8s 17.25s forwards;
+    animation: top 0.8s 13.25s forwards;
+}
+
+@keyframes top {
+    0% {
+        opacity: 0;
+        bottom: -80px;
+   }
+    100% {
+        opacity: 1;
+        bottom: 0px;
+   }
 }
 
 footer span {
@@ -213,23 +220,12 @@ footer span i {
 
 .footer-index-i {
     animation: icon 2s forwards;
-    animation-delay: 4s;
+    animation-delay: 5s;
 }
 
 .footer-about-i {
     animation: icon 2s forwards;
-    animation-delay: 17.25s;
-}
-
-@keyframes top {
-    0% {
-        opacity: 0;
-        bottom: -80px;
-   }
-    100% {
-        opacity: 1;
-        bottom: 0px;
-   }
+    animation-delay: 14.25s;
 }
 
 @keyframes icon {
@@ -247,9 +243,18 @@ footer span i {
    }
 }
 
+.scroll-div {
+    height: 140px;
+    width: 100vw;
+    position: absolute;
+    bottom: -140px;
+    margin: 0;
+    right: 0;
+}
+
 /* Index */
 
-.index-body, .projects-body {
+.index-body {
     background-color: #232323;
 }
 
@@ -564,8 +569,12 @@ footer span i {
 
 /* About */
 
+.about-container {
+    height: calc(100vh - 60px);
+}
+
 .fly-out {
-    height: 100vh;
+    height: calc(100vh - 60px);
     width: 70vw;
     display: flex;
     justify-content: center;
@@ -610,6 +619,7 @@ footer span i {
     animation: floatBubble 2s forwards;
     position: relative;
     filter: brightness(80%);
+    top: -100vh;
 } 
 
 @keyframes floatBubble {
@@ -636,7 +646,7 @@ footer span i {
     filter: brightness(200%);
     position: relative;
     left: 2vw;
-    animation: blurFade 2s linear 2.25s normal forwards;
+    animation: blurFade 2s linear 1.75s normal forwards;
     opacity: 0;
     margin-bottom: 1vh;
 }
@@ -660,6 +670,17 @@ footer span i {
     color: white;
     filter: blur(0.02em);
     mix-blend-mode: difference;
+}
+
+@keyframes blurFade {
+    0% {
+        opacity: 0;
+        filter: blur(20px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 .gradient {
@@ -693,17 +714,6 @@ footer span i {
     mix-blend-mode: color-dodge;
 }
 
-@keyframes blurFade {
-    0% {
-        opacity: 0;
-        filter: blur(10px);
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-    }
-}
-
 @keyframes light {
     to {
         transform: translate(50%, 50%);
@@ -712,18 +722,29 @@ footer span i {
 
 .about-p {
     font-size: calc(.75vw + 10px);
-    font-style: italic;
     font-weight: 100;
     font-family: 'Vollkorn', serif;
     line-height: 1.3;
-    visibility: hidden;
     text-align: justify;
     color: #CCCCCC;
+    position: relative;
+    opacity: 0;
+    animation: enterLeft 1s 1s forwards;
+    left: -100vw;
 }
 
-.about-p.start {
-    animation: fly-in 2s 5s linear forwards;
-}
+@keyframes enterLeft {
+    0% {
+        left: -100vw;
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    100% {
+        left: 0;
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+}  
 
 @keyframes fly-in {
     0% { 
@@ -741,14 +762,6 @@ footer span i {
     }
 }
 
-.skills-container {
-    clear: both;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .skills-h1 {
     font-family: 'Poppins', sans-serif;
     font-size: calc(2.25vw + 10px);
@@ -758,29 +771,29 @@ footer span i {
     background-clip: text;
     color: transparent;
     animation: reveal 3000ms ease-in-out forwards 200ms, glow 5s linear infinite 2000ms;
-    animation-delay: 10s;
-    visibility: hidden;
-    margin: 0 0 2vh 0;
+    animation-delay: 5s;
+    opacity: 0;
+    margin: 0 0 4vh 0;
 }
 
 @keyframes reveal {
     0% {
-        visibility: visible;
+        opacity: 1;
     }
     80%{
       letter-spacing: 8px;
-      visibility: visible;
+      opacity: 1;
     }
     100% {
       background-size: 300% 300%;
-      visibility: visible;
+      opacity: 1;
     }
 }
 
 @keyframes glow {
     40% {
       text-shadow: 0 0 8px #fff;
-      visibility: visible;
+      opacity: 1;
     }
 }
 
@@ -792,7 +805,7 @@ footer span i {
 .skills-img-container i {
     opacity: 0;
     animation: flip .25s 1 forwards;
-    animation-delay: calc(.25s * var(--i) + 13.25s)
+    animation-delay: calc(.25s * var(--i) + 8s)
 }
 
 .skills-img-container svg {
@@ -800,7 +813,7 @@ footer span i {
     height: 3vw;
     width: 3vw;
     animation: flip .25s 1 forwards;
-    animation-delay: calc(.25s * var(--i) + 13.25s)
+    animation-delay: calc(.25s * var(--i) + 8s)
 }
 
 @keyframes flip {
@@ -816,34 +829,62 @@ footer span i {
   /* Projects */
 
   .projects-container {
-    width: 100vw;
+    width: 70vw;
     height: calc(100vh - 60px);
-    color:#CCCCCC;
+    color: black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    margin: 0 15vw;
+    padding: 5vh 0;
   }
+
+  .projects-neon {
+    overflow: hidden;
+    filter: brightness(200%);
+    position: relative;
+    animation: blurFade 2s linear 1.75s normal forwards;
+    opacity: 0;
+    margin-bottom: 1vh;
+}
 
   .projects-h1 {
-    font-size: calc(3vw + 10px);
-    margin-bottom: 10vh;
-  }
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    margin: 0;
+    user-select: none;
+    font-size: calc(2.5vw + 10px);
+    background-color: black;
+    position: relative;
+}
 
-  .projects-div {
-    width: 70vw;
-  }
+.projects-h1::before {
+    content: attr(data-text);
+    position: absolute;
+    color: white;
+    filter: blur(0.02em);
+    mix-blend-mode: difference;
+}
 
   .project-container {
     width: 70vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    background-color: #CCCCCC;
+    padding: 2vw;
+    border-radius: 50px;
+    margin: 3vh 0;
+    background-image: url("./pics/scratched.webp");
+    background-repeat: none;
+    overflow: hidden;
+    background-size: cover;
+    border: #CCCCCC solid 5px;
+    
   }
 
   .project-visible {
-    display: flex;
+    display: block;
   }
 
   .project-hidden {
@@ -853,53 +894,80 @@ footer span i {
   .project-img {
     width: 40vw;
     height: auto;
-  }
-
-  .project-article {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 2vw;
+    float: left;
+    margin: 0 2vw 2vw 0;
+    border-radius: 5px;
   }
 
   .project-h2 {
-    font-size: calc(2vw + 10px);
+    font-size: calc(1.5vw + 10px);
+    margin: 0 0 2vw 0;
     text-align: center;
-    width: fit-content;
-  }
-
-  .project-a {
-    font-size: calc(1.25vw + 10px);
-    margin: 2vh 0;
-    color:#F2CB05;
-  }
-
-  .project-a:hover {
-    color:#F29F05;
   }
 
   .project-p {
     text-align: justify;
   }
 
+  .project-a {
+    font-size: calc(1vw + 10px);
+    color:#267365;
+    display: block;
+    text-align: center;
+    clear: both;
+    margin-top: 5vh;
+  }
+
+  .project-a:hover {
+    color:#F28705;
+  }
+
   .projects-buttons {
     width: 70vw;
     font-size: calc(1.5vw + 10px);
-    margin-top: 3vh;
     display: flex;
     justify-content: space-evenly;
   }
 
   .projects-buttons button {
     cursor: pointer;
+    color:#CCCCCC;
+    background-color:#232323;
+    padding: 0 5px;
+    border-radius: 50%;
   }
 
   /* Media */
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1350px) {
     .skills-h1 {
         margin-top: 7vh;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .project-container {
+        padding: 5vw;
+      }
+}
+
+@media only screen and (max-width: 760px) {
+    .project-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .project-visible {
+        display: flex;
+      }
+    
+      .project-hidden {
+        display: none;
+      }
+
+    .project-img {
+        float: none;
     }
 }
 
