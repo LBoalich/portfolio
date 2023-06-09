@@ -901,12 +901,20 @@ footer span i {
 
   .project-h2 {
     font-size: calc(1.5vw + 10px);
-    margin: 0 0 2vw 0;
+    margin: 0 0 15px 0;
     text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    text-shadow: white 10px 5px 8px, white -10px -5px 8px;
   }
 
   .project-p {
     text-align: justify;
+    font-family: 'Vollkorn', serif;
+    font-size: calc(.65vw + 10px);
+    font-weight: 900;
+    text-shadow: white 10px 5px 8px, white -10px -5px 8px;
+    line-height: calc(1vw + 10px);
   }
 
   .project-a {
@@ -915,11 +923,16 @@ footer span i {
     display: block;
     text-align: center;
     clear: both;
-    margin-top: 5vh;
+    margin-top: 20px;
+    font-weight: 900;
+    font-family: 'Lato', sans-serif;
+    text-shadow: white 10px 5px 8px, white -10px -5px 8px;
+    text-decoration: none;
   }
 
   .project-a:hover {
-    color:#F28705;
+    color: #F28705;
+
   }
 
   .projects-buttons {
@@ -931,7 +944,7 @@ footer span i {
 
   .projects-buttons button {
     cursor: pointer;
-    color:#CCCCCC;
+    color:white;
     background-color:#232323;
     padding: 0 5px;
     border-radius: 50%;
