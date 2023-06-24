@@ -844,7 +844,7 @@ footer span i {
     overflow: hidden;
     filter: brightness(200%);
     position: relative;
-    animation: blurFade 2s linear 1.75s normal forwards;
+    animation: blurFade 2s linear normal forwards;
     opacity: 0;
     margin-bottom: 1vh;
 }

@@ -45,7 +45,7 @@ let previousScrollPosition = 0;
 const isScrollingDown = () => {
   let goingDown = false;
 
-  let scrollPosition = window.pageYOffset;
+  let scrollPosition = window.scrollY;
 
   if (scrollPosition > previousScrollPosition) {
     goingDown = true;
@@ -56,38 +56,69 @@ const isScrollingDown = () => {
   return goingDown;
 };
 
-// When page is scrolled down and nav not active toggles current page animation to scrolled and updates current pathname to next page.  Resets previousScrollPosition back to 0.
-
+// When page is scrolled down and nav not active toggles current page animation to scrolled and updates current pathname to next page.  Resets previousScrollPosition back to 0. 
 
 const handleScroll = () => {
   if (document.body.classList.contains("nav-active")) {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
     return;
   }
 
   if (isScrollingDown()) {
-    switch (window.location.pathname) {
-      case "/Users/leahboalich/Documents/GitHub/Portfolio/index.html":
-        scrollToggle("index-scroll");
-        setTimeout(() => {
-          window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/about.html";
-        }, 4800);
-        break;
-      case "/Users/leahboalich/Documents/GitHub/Portfolio/about.html":
-        scrollToggle("about-scroll");
-        setTimeout(() => {
-          window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html";
-        }, 2000)
-        break;
-      case "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html":
-        window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html";
-        break;
-      case "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html":
-        window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/index.html";
-        break;
-      default:
-        break;
-    };
-    previousScrollPosition = 0;
+
+// Return screen to top so content still in center of page for exit animations.
+    setTimeout(() => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 500);
+
+// pathnames need updated when site launches    
+
+    setTimeout(() => {
+      switch (window.location.pathname) {
+        case "/Users/leahboalich/Documents/GitHub/Portfolio/index.html":
+          scrollToggle("index-scroll");
+          setTimeout(() => {
+            previousScrollPosition = 0;
+            console.log("set top")
+          }, 4800);
+          setTimeout(() => {
+            window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/about.html";
+          }, 5800);
+          break;
+
+        case "/Users/leahboalich/Documents/GitHub/Portfolio/about.html":
+          scrollToggle("about-scroll");
+          setTimeout(() => {
+            previousScrollPosition = 0;
+          }, 2000);
+          setTimeout(() => {
+            window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html";
+          }, 3000);
+          break;
+
+        case "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html":
+          previousScrollPosition = 0;
+          console.log("set top");
+          window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html";
+          break;
+
+        case "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html":
+          previousScrollPosition = 0;
+          window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/index.html";
+          break;
+
+        default:
+          break;
+      };   
+    }, 1000);
   }
 };
 
@@ -103,11 +134,11 @@ const throttle = (callback, time) => {
     }, time);
 };
 
-// When page scrolled calls handle scroll only once per second
+// When page scrolled calls handle scroll only once per second. 
 
-//window.addEventListener("scroll", () => {
-//throttle(handleScroll, 1000);
-//});
+window.addEventListener("scroll", () => {
+  throttle(handleScroll, 1000);
+});
 
 // Toggle the visible project when the forward or back button is clicked
 
