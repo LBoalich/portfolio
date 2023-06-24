@@ -65,6 +65,7 @@ const handleScroll = () => {
       left: 0,
       behavior: "smooth",
     });
+    previousScrollPosition = 0;
     return;
   }
 
@@ -77,9 +78,9 @@ const handleScroll = () => {
         left: 0,
         behavior: "smooth",
       });
-    }, 500);
+    }, 250);
 
-// pathnames need updated when site launches    
+// case pathnames need updated when site launches    
 
     setTimeout(() => {
       switch (window.location.pathname) {
@@ -118,8 +119,8 @@ const handleScroll = () => {
         default:
           break;
       };   
-    }, 1000);
-  }
+    }, 500);
+  };
 };
 
 // Makes sure event can only fire function after certain amount of time has elapsed.
