@@ -56,6 +56,30 @@ const isScrollingDown = () => {
   return goingDown;
 };
 
+// Returns the current page.  
+//Pathnames need updated on site launch
+
+const getCurrentPage = () => {
+  let currentPage;
+
+  switch (window.location.pathname) {
+    case "/Users/leahboalich/Documents/GitHub/Portfolio/index.html":
+      currentPage = "index";
+      break;
+    case "/Users/leahboalich/Documents/GitHub/Portfolio/about.html":
+      currentPage = "about";
+      break;
+    case "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html":
+      currentPage = "projects";
+      break;
+    case "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html":
+      currentPage = "contact";
+      break;
+  };
+
+  return currentPage;
+};
+
 // When page is scrolled down and nav not active toggles current page animation to scrolled and updates current pathname to next page.  Resets previousScrollPosition back to 0. 
 
 const handleScroll = () => {
@@ -83,19 +107,18 @@ const handleScroll = () => {
 // case pathnames need updated when site launches    
 
     setTimeout(() => {
-      switch (window.location.pathname) {
-        case "/Users/leahboalich/Documents/GitHub/Portfolio/index.html":
+      switch (getCurrentPage()) {
+        case "index":
           scrollToggle("index-scroll");
           setTimeout(() => {
             previousScrollPosition = 0;
-            console.log("set top")
           }, 4800);
           setTimeout(() => {
             window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/about.html";
           }, 5800);
           break;
 
-        case "/Users/leahboalich/Documents/GitHub/Portfolio/about.html":
+        case "about":
           scrollToggle("about-scroll");
           setTimeout(() => {
             previousScrollPosition = 0;
@@ -105,13 +128,12 @@ const handleScroll = () => {
           }, 3000);
           break;
 
-        case "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html":
+        case "projects":
           previousScrollPosition = 0;
-          console.log("set top");
           window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html";
           break;
 
-        case "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html":
+        case "contact":
           previousScrollPosition = 0;
           window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/index.html";
           break;
