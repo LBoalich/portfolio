@@ -191,6 +191,10 @@ footer {
     animation: top 0.8s 13.25s forwards;
 }
 
+.projects-footer {
+    animation: top 0.8s 2s forwards;
+}
+
 @keyframes top {
     0% {
         opacity: 0;
@@ -226,6 +230,10 @@ footer span i {
 .footer-about-i {
     animation: icon 2s forwards;
     animation-delay: 14.25s;
+}
+
+.footer-projects-i {
+    animation: icon 2s 3s forwards;
 }
 
 @keyframes icon {
@@ -789,22 +797,6 @@ footer span i {
         animation-timing-function: ease-out;
         opacity: 1;
     }
-}  
-
-@keyframes fly-in {
-    0% { 
-        opacity: 0;
-        filter: blur(20px); 
-        transform:scale(1);
-        visibility: visible;
-    }
-   
-    100% { 
-        opacity: 1;
-        filter: blur(0); 
-        transform:scale(1);
-        visibility: visible;
-    }
 }
 
 .skills-h1 {
@@ -914,7 +906,7 @@ footer span i {
     mix-blend-mode: difference;
 }
 
-  .project-container {
+.project-container {
     width: 70vw;
     background-color: #CCCCCC;
     padding: 2vw;
@@ -925,26 +917,47 @@ footer span i {
     overflow: hidden;
     background-size: cover;
     border: #CCCCCC solid 5px;
-    
-  }
+}
 
-  .project-visible {
+.project-container.start {
+    animation: fly-in 2s ease-out normal forwards;
+    opacity: 0;
+    visibility: hidden; 
+}
+
+@keyframes fly-in {
+    0% { 
+        opacity: 0;
+        transform:scale(0);
+        visibility: hidden;
+        filter: blur(10px); 
+    }
+   
+    100% { 
+        opacity: 1;
+        filter: blur(0); 
+        transform:scale(1);
+        visibility: visible;
+    }
+}
+
+.project-visible {
     display: block;
-  }
+}
 
-  .project-hidden {
+.project-hidden {
     display: none;
-  }
+}
 
-  .project-img {
+.project-img {
     width: 40vw;
     height: auto;
     float: left;
     margin: 0 2vw 2vw 0;
     border-radius: 5px;
-  }
+}
 
-  .project-h2 {
+.project-h2 {
     font-size: calc(1.5vw + 10px);
     margin: 0 0 15px 0;
     text-align: center;
@@ -953,18 +966,18 @@ footer span i {
     text-shadow: white 10px 5px 8px, white -10px -5px 8px;
     color: #267365;
     -webkit-text-stroke: 1px white;
-  }
+}
 
-  .project-p {
+.project-p {
     text-align: justify;
     font-family: 'Vollkorn', serif;
     font-size: calc(.65vw + 10px);
     font-weight: 900;
     text-shadow: white 10px 5px 8px, white -10px -5px 8px;
     line-height: calc(1vw + 10px);
-  }
+}
 
-  .project-a {
+.project-a {
     font-size: calc(1.25vw + 10px);
     color:#F23030;
     display: block;
@@ -976,29 +989,72 @@ footer span i {
     text-shadow: white 10px 5px 8px, white -10px -5px 8px;
     text-decoration: none;
     -webkit-text-stroke: 1px white;
-  }
+}
 
-  .project-a:hover {
+.project-a:hover {
     color: #F28705;
+}
 
-  }
-
-  .projects-buttons {
+.projects-buttons {
     width: 70vw;
     font-size: calc(1.5vw + 10px);
     display: flex;
     justify-content: space-evenly;
-  }
+    animation: blurFade 2s linear normal forwards;
+}
 
-  .projects-buttons button {
+.projects-buttons button {
     cursor: pointer;
     color:white;
     background-color:#232323;
     padding: 0 5px;
     border-radius: 50%;
-  }
+}
 
-  /* Media */
+@property --wipe-position {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+}
+
+.projects-body.scrolled {
+    background-color: #000;
+    --wipe-position: 100%;
+    --gradient-length: 20%;
+    mask-image: linear-gradient(
+        to bottom right,
+        #232323 var(--wipe-position),
+        transparent calc(var(--wipe-position) + var(--gradient-length)),
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to bottom right,
+        #232323 var(--wipe-position),
+        transparent calc(var(--wipe-position) + var(--gradient-length)),
+        transparent
+    );
+    transition: --wipe-position 2s cubic-bezier(0, 0.55, 0.45, 1);
+    --wipe-position: calc(-1 * var(--gradient-length));
+    animation: change-color 2s cubic-bezier(0, 0.55, 0.45, 1) forwards;
+}
+
+@keyframes change-color {
+    0% {
+        background-color: #000;
+    }
+
+    100% {
+        background-color: #232323;
+    }
+}
+
+/* Contact */
+
+.contact-body {
+    background-color: #232323;
+}
+
+/* Media */
 
 @media only screen and (max-width: 1350px) {
     .skills-h1 {
