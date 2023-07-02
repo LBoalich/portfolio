@@ -306,8 +306,41 @@ footer span i {
 
 /* Index */
 
-.index-body {
+.index-body.start {
     background-color: #232323;
+}
+
+.index-body.scrolled {
+    background-color: #232323;
+    --wipe-position: 100%;
+    --gradient-length: 20%;
+    mask-image: linear-gradient(
+        to bottom right,
+        black var(--wipe-position),
+        transparent calc(var(--wipe-position) + var(--gradient-length)),
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to bottom right,
+        black var(--wipe-position),
+        transparent calc(var(--wipe-position) + var(--gradient-length)),
+        transparent
+    );
+    transition: --wipe-position 2s cubic-bezier(0, 0.55, 0.45, 1);
+    --wipe-position: calc(-1 * var(--gradient-length));
+    animation: change-color-index 4s cubic-bezier(0, 0.55, 0.45, 1) forwards;
+    animation-delay: 4s;
+    transition-delay: 4s;
+}
+
+@keyframes change-color-index {
+    0% {
+        background-color: #232323;
+    }
+
+    100% {
+        background-color: black;
+    }
 }
 
 .container {
@@ -390,11 +423,12 @@ footer span i {
     right: -4cqw;
 }
 
-.title h1 span.start {
+.title h1 span {
     animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     animation-delay: 2s;
 }
 
+/*
 .title h1 span.scrolled {
     animation: popOut 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     animation-delay: 2s;
@@ -403,6 +437,7 @@ footer span i {
     border: 0px solid #222;
     bottom: 2.8cqw;
 }
+*/
 
 .role {
     width: 100%;
@@ -1035,7 +1070,7 @@ footer span i {
     );
     transition: --wipe-position 2s cubic-bezier(0, 0.55, 0.45, 1);
     --wipe-position: calc(-1 * var(--gradient-length));
-    animation: change-color 2s cubic-bezier(0, 0.55, 0.45, 1) forwards;
+    animation: change-color 4s cubic-bezier(0, 0.55, 0.45, 1) forwards;
 }
 
 @keyframes change-color {
