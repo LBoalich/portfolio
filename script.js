@@ -72,9 +72,6 @@ const getCurrentPage = () => {
     case "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html":
       currentPage = "projects";
       break;
-    case "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html":
-      currentPage = "contact";
-      break;
   };
 
   return currentPage;
@@ -134,13 +131,8 @@ const handleScroll = () => {
             previousScrollPosition = 0;
           }, 2000)
           setTimeout(() => {
-            window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/contact.html";
+            window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/index.html";
           }, 3000);
-          break;
-
-        case "contact":
-          previousScrollPosition = 0;
-          window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/index.html";
           break;
 
         default:
