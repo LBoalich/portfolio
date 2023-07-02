@@ -28,7 +28,7 @@ body {
     height: 2px;
     width: 30px;
     display: block;
-    background-color: #fff;
+    background-color: #F23030;
     margin-bottom: 4px;
     transition: transform 0.2s ease, background-color 0.5s ease;
 }
@@ -284,7 +284,7 @@ footer span i {
 }
 
 .page-scroll-container {
-    color:#fff;
+    color:#F23030;
     text-align: center;
     font-size: 16px;
 }
@@ -294,6 +294,7 @@ footer span i {
     z-index: 5;
     width: calc(7vw + 30px);
     bottom: 40px;
+    animation: getBig 3s infinite;
 }
 
 .page-scroll-i {
@@ -302,7 +303,21 @@ footer span i {
     left: 3.5vw;
     width: 30px;
     bottom: 15px;
+    animation: getBig 3s infinite;
 }
+
+@keyframes getBig {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 /* Index */
 
@@ -427,17 +442,6 @@ footer span i {
     animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     animation-delay: 2s;
 }
-
-/*
-.title h1 span.scrolled {
-    animation: popOut 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
-    animation-delay: 2s;
-    width: 3cqw;
-    height: 3cqw;
-    border: 0px solid #222;
-    bottom: 2.8cqw;
-}
-*/
 
 .role {
     width: 100%;
@@ -1081,12 +1085,6 @@ footer span i {
     100% {
         background-color: #232323;
     }
-}
-
-/* Contact */
-
-.contact-body {
-    background-color: #232323;
 }
 
 /* Media */
