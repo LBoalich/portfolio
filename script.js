@@ -3,27 +3,39 @@
 const app = (() => {
   let body;
   let menu;
+  let navItems = [];
   
   const init = () => {
     body = document.querySelector('body');
     menu = document.querySelector('.menu-icon');
+    navItems = document.getElementsByClassName("nav__list-item");
 
     applyListeners();
-  }
+  };
   
   const applyListeners = () => {
     menu.addEventListener('click', () => toggleClass(body, 'nav-active'));
-  }
+
+    for (i = 0; i < navItems.length; i++) {
+      navItems[i].addEventListener("click", () => toggleClass(body, "nav-active"));
+    };
+  };
   
   const toggleClass = (element, stringClass) => {
     if(element.classList.contains(stringClass))
       element.classList.remove(stringClass);
     else
       element.classList.add(stringClass);
-  }
+  };
   
   init();
 })();
+
+// Delays page load when nav list item clicked
+
+function delay (URL) {
+  setTimeout( function() { window.location = URL }, 800 );
+}
 
 // Toggles page load and exit animations
 
