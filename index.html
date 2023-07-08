@@ -14,10 +14,10 @@
 </head>
 <body class="index-body start index-scroll">
     <header>
-        <div class="menu-icon">
-            <span class="menu-icon__line menu-icon__line-left"></span>
-            <span class="menu-icon__line"></span>
-            <span class="menu-icon__line menu-icon__line-right"></span>
+        <div class="menu-icon" aria-label="Open the menu">
+            <span class="menu-icon__line menu-icon__line-left" aria-hidden="true"></span>
+            <span class="menu-icon__line" aria-hidden="true"></span>
+            <span class="menu-icon__line menu-icon__line-right" aria-hidden="true"></span>
         </div>
           
         <nav class="nav">
@@ -31,7 +31,7 @@
         </nav>
     </header>
 
-    <div class="current-page">
+    <div class="current-page" aria-hidden="true">
         <div id = "page-index" class="page-marker current-marker">
             <i class="fa-solid fa-circle"></i>
         </div>
@@ -61,14 +61,15 @@
 
     <div class="page-scroll-container">
         <p class="page-scroll-p">SCROLL</p>
-        <i class="fa-regular fa-circle-down page-scroll-i"></i>
+        <i class="fa-regular fa-circle-down page-scroll-i" aria-hidden="true"></i>
+        <span class="visually-hidden">DOWN</span>
     </div>
 
     <a href="https://www.linkedin.com/in/leah-boalich" target="_blank">
         <footer class="index-footer">
             <div class="texto">
                 <span>
-                    <i class="fa-brands fa-linkedin footer-index-i"></i>
+                    <i class="fa-brands fa-linkedin footer-index-i" aria-hidden="true"></i>
                     Contact me at LinkedIn
                 </span>
             </div>
