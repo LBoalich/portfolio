@@ -1,3 +1,5 @@
+console.log(window.location.pathname)
+
 // Navigation toggle visibility when clicked
 
 const app = (() => {
