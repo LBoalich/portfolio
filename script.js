@@ -69,19 +69,18 @@ const isScrollingDown = () => {
 };
 
 // Returns the current page.  
-//Pathnames need updated on site launch
 
 const getCurrentPage = () => {
   let currentPage;
 
   switch (window.location.pathname) {
-    case "/Users/leahboalich/Documents/GitHub/Portfolio/index.html":
+    case "/index.html":
       currentPage = "index";
       break;
-    case "/Users/leahboalich/Documents/GitHub/Portfolio/about.html":
+    case "/about.html":
       currentPage = "about";
       break;
-    case "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html":
+    case "/projects.html":
       currentPage = "projects";
       break;
   };
@@ -111,9 +110,7 @@ const handleScroll = () => {
         left: 0,
         behavior: "smooth",
       });
-    }, 250);
-
-// case pathnames need updated when site launches    
+    }, 250); 
 
     setTimeout(() => {
       switch (getCurrentPage()) {
@@ -123,7 +120,7 @@ const handleScroll = () => {
             previousScrollPosition = 0;
           }, 4800);
           setTimeout(() => {
-            window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/about.html";
+            window.location.pathname = "/about.html";
           }, 5800);
           break;
 
@@ -133,7 +130,7 @@ const handleScroll = () => {
             previousScrollPosition = 0;
           }, 2000);
           setTimeout(() => {
-            window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/projects.html";
+            window.location.pathname = "/projects.html";
           }, 3000);
           break;
 
@@ -143,7 +140,7 @@ const handleScroll = () => {
             previousScrollPosition = 0;
           }, 2000)
           setTimeout(() => {
-            window.location.pathname = "/Users/leahboalich/Documents/GitHub/Portfolio/index.html";
+            window.location.pathname = "/index.html";
           }, 3000);
           break;
 
