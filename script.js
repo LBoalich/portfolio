@@ -1,5 +1,3 @@
-console.log(window.location.pathname)
-
 // Navigation toggle visibility when clicked
 
 const app = (() => {
@@ -76,13 +74,13 @@ const getCurrentPage = () => {
   let currentPage;
 
   switch (window.location.pathname) {
-    case "/index.html":
+    case "/portfolio/":
       currentPage = "index";
       break;
-    case "/about.html":
+    case "/portfolio/about.html":
       currentPage = "about";
       break;
-    case "/projects.html":
+    case "/portfolio/projects.html":
       currentPage = "projects";
       break;
   };
@@ -122,7 +120,7 @@ const handleScroll = () => {
             previousScrollPosition = 0;
           }, 4800);
           setTimeout(() => {
-            window.location.pathname = "/about.html";
+            window.location.pathname = "/portfolio/about.html";
           }, 5800);
           break;
 
@@ -132,7 +130,7 @@ const handleScroll = () => {
             previousScrollPosition = 0;
           }, 2000);
           setTimeout(() => {
-            window.location.pathname = "/projects.html";
+            window.location.pathname = "/portfolio/projects.html";
           }, 3000);
           break;
 
@@ -142,7 +140,7 @@ const handleScroll = () => {
             previousScrollPosition = 0;
           }, 2000)
           setTimeout(() => {
-            window.location.pathname = "/index.html";
+            window.location.pathname = "/portfolio/";
           }, 3000);
           break;
 
