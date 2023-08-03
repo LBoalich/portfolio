@@ -240,9 +240,12 @@ const handleProjectForwardClick = () => {
 };
 
 // Loads next project when forward or back button clicked
+if (getCurrentPage() === "projects") { 
+ 
+  document.getElementById("project-forward-button").addEventListener("click", () => handleProjectForwardClick());
 
-document.getElementById("project-forward-button").addEventListener("click", () => handleProjectForwardClick());
-document.getElementById("project-back-button").addEventListener("click", () => handleProjectBackClick());
+  document.getElementById("project-back-button").addEventListener("click", () => handleProjectBackClick());
+};
 
 // Current project always starts with It's A Bird which is stored. Load project page based on session storage project id.  Add start to current ID's class to trigger animation.
 
