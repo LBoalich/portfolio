@@ -12,12 +12,28 @@ const app = (() => {
 
     applyListeners();
   };
+
+  const toggleNavAria = () => {
+    const ariaExpanded = menu.getAttribute("aria-expanded");
+
+    if (ariaExpanded === "true") {
+      menu.setAttribute("aria-expanded", "false")
+    } else {
+      menu.setAttribute("aria-expanded", "true")
+    }
+  };
   
   const applyListeners = () => {
-    menu.addEventListener('click', () => toggleClass(body, 'nav-active'));
+    menu.addEventListener('click', () => {
+      toggleClass(body, 'nav-active'); 
+      toggleNavAria();
+    });
 
     for (i = 0; i < navItems.length; i++) {
-      navItems[i].addEventListener("click", () => toggleClass(body, "nav-active"));
+      navItems[i].addEventListener("click", () => {
+        toggleClass(body, "nav-active");
+        toggleNavAria();
+      });
     };
   };
   
