@@ -890,6 +890,10 @@ footer span i {
     color:#F2CB05;
 }
 
+html.fa-events-icons-loading .skills-img-container {
+  visibility: hidden;
+}
+
 .skills-img-container i {
     opacity: 0;
     animation: flip .25s 1 forwards;
